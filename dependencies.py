@@ -3,16 +3,28 @@ import subprocess
 import apt
 
 cache = apt.Cache()
-package_name = cache[y]
+
+nmap_package = "nmap"
+
 
 dependant_packages = [
     'nmap',
-    'hydra'
+    'hydra',
+    'git',
+    'john',
+    'gobuster',
+
+
 ]
 
 
-for y in dependant_packages:
+for package in dependant_packages:
 
-   
-    print(package_name)
+    package_name = cache[package]
+
+if nmap_package in package:
+    print('yes the package is here')
+
+else:
+    print("nmap is not in")
 
