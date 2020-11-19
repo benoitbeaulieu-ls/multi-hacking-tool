@@ -1,12 +1,9 @@
 #!/usr/bin/env python3
 import subprocess
+import sys
 import apt
 
-cache = apt.Cache()
-
-nmap_package = "nmap"
-
-
+#packages we need
 dependant_packages = [
     'nmap',
     'hydra',
@@ -14,17 +11,18 @@ dependant_packages = [
     'john',
     'gobuster',
 
-
 ]
 
+all_packages = []
 
-for package in dependant_packages:
+#Let's try to run through
 
-    package_name = cache[package]
+cache = apt.Cache()
 
-if nmap_package in package:
-    print('yes the package is here')
 
-else:
-    print("nmap is not in")
 
+for package in apt.Cache():
+    all_packages.append(package)
+    
+
+print(all_packages)
